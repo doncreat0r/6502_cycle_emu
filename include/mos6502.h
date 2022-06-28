@@ -478,7 +478,11 @@ private:
 
     // Internal functions
     inline void UpdateNZ(uint8_t v);
-    inline void NextOp();
+    inline void NextOp() 
+    {
+        _pins.ADDR = R.PC;
+        _pins.SYNC = true;
+    }
 
     inline void AND_A_Flags(uint8_t v);
     inline uint8_t ASL_Flags(uint8_t v);

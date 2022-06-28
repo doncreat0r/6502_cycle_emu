@@ -761,12 +761,6 @@ inline void mos6502::UpdateNZ(uint8_t v)
     S.N = (v & 0x80);
 }
 
-inline void mos6502::NextOp()
-{
-    _pins.ADDR = R.PC;
-    _pins.SYNC = true;
-}
-
 inline void mos6502::AND_A_Flags(uint8_t v)
 {
     uint8_t test = R.A & v;
