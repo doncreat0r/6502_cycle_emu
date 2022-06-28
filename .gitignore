@@ -5,8 +5,4 @@
 tests
 *.gch
 mainTestCPU
-<<<<<<< HEAD
-
-=======
 bazel-*
->>>>>>> bazel-build-env
