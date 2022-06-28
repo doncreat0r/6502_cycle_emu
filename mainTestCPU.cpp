@@ -59,7 +59,7 @@ private:
 	bool cpu_init_done = false;
 	bool cpu_done = false;
 	
-	std::thread thread_cpu;
+	std::unique_ptr<std::thread> thread_cpu;
 	bool step_mode = false;
 	bool step_one = false;
 
@@ -157,7 +157,7 @@ public:
 	bool OnUserCreate() override
 	{
 		// Called once at the start, so create things here
-		thread_cpu = std::thread(&Demo6502::cpu_task, this);
+		thread_cpu = std::make_unique<std::thread>(&Demo6502::cpu_task, this);
 
 		nes.ReadFromFile("tests//ehbasic.bin", 0xC000);
 
@@ -172,7 +172,7 @@ public:
 	bool OnUserDestroy() override
 	{
 		cpu_done = true;
-		thread_cpu.join();
+		thread_cpu->join();
 		return true;
 	}
 
