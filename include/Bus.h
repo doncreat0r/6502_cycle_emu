@@ -23,7 +23,7 @@ public:
 	Bus() { }
 	~Bus() {}
 
-	virtual void TickHandler() {}
+	virtual void TickHandler() = 0;
 
 	bool ReadFromFile(const char* filename, uint16_t offset);
 
