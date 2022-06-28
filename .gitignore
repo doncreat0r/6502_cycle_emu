@@ -1,3 +1,8 @@
 *.pdb
-.vscode/*
 .vscode
+*.exe
+*.ilk
+tests
+*.gch
+mainTestCPU
+

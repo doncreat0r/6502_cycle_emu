@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <array>
 #include <functional>
+#include <atomic>
 #include "mos6502.h"
 
 typedef std::array<uint8_t, 64 * 1024> AllMemory;
@@ -23,7 +24,7 @@ public:
 	Bus() { }
 	~Bus() {}
 
-	virtual void TickHandler() {}
+	virtual void TickHandler() = 0;
 
 	bool ReadFromFile(const char* filename, uint16_t offset);
 

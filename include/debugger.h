@@ -18,8 +18,8 @@ public:
 	Debugger(Bus& _bus) : bus(_bus) { }
 	~Debugger() {}
 
-	Registers6502 getRegisters() { return bus.CPU.R; }
-	uint8_t getFlags() { return bus.CPU.S; }
+	Registers6502& getRegisters() { return bus.CPU.R; }
+	Flags6502& getFlags() { return bus.CPU.S; }
 	uint8_t Read(uint16_t addr) { return bus.RAM[addr]; }
 	void Write(uint16_t addr, uint8_t data) { bus.RAM[addr] = data; }
 
