@@ -7,10 +7,13 @@
 #include "mos6502.h"
 #include "Bus.h"
 #include "debugger.h"
-#include <conio.h>
 
 #define OLC_PGE_APPLICATION
-#include "olcPixelGameEngine\olcPixelGameEngine.h"
+#include "olcPixelGameEngine/olcPixelGameEngine.h"
+
+#if defined(OLC_PLATFORM_WINAPI)
+#include <conio.h>
+#endif
 
 class TestBus : public Bus
 {
@@ -31,9 +34,9 @@ public:
 		{
 			if (a == 0xF004)
 			{
-				if (_kbhit())
-					pins.DATA = _getch();
-				else
+				//if (_kbhit())
+				//	pins.DATA = _getch();
+				//else
 					pins.DATA = 0;
 				RAM[0xF004] = pins.DATA;
 			}
@@ -53,8 +56,8 @@ public:
 	Debugger deb = {nes};
 
 private:
-	bool cpu_init_done;
-	bool cpu_done;
+	bool cpu_init_done = false;
+	bool cpu_done = false;
 	
 	std::thread thread_cpu;
 	bool step_mode = false;
