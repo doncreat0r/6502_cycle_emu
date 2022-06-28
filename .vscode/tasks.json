@@ -50,22 +50,22 @@
         {
             "type": "cppbuild",
             "label": "C/C++: gcc Linux build active file 222",
-            "command": "/usr/bin/gcc",
+            "command": "/usr/bin/g++",
             "args": [
-                "-fdiagnostics-color=always",
-				"-lX11",
-				"-lGL",
-				"-lpthread", 
-				"-lpng", 
-				"-lstdc++fs", 
-				"-std=c++17",
+                //"-fdiagnostics-color=always",
                 "-I",
                 "${workspaceFolder}/include/",
                 "-g",
                 "${file}",
                 "${workspaceFolder}/src/*.cpp",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/${fileBasenameNoExtension}",
+				"-lX11",
+				"-lGL",
+				"-lpthread", 
+				"-lpng", 
+				"-lstdc++fs", 
+				"-std=c++14",
             ],
             "options": {
                 "cwd": "/usr/bin"
