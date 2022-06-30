@@ -35,10 +35,10 @@ class Flags6502
 
     class Flag
     {
-        const FLAGS6502 M;
         uint8_t& S;
+        const FLAGS6502 M;
     public:
-        Flag(uint8_t& x, const FLAGS6502 mask) : S(x), M(mask) {}
+        Flag(uint8_t& x, const FLAGS6502 mask) : S(x), M(mask)  {}
         operator bool() const { return S & static_cast<uint8_t>(M); }
         // not sure if S.C = true/false is better than S.C.Set() S.C.Clr()
         void Clr() { S &= ~static_cast<uint8_t>(M); }
