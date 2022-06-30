@@ -1,0 +1,10 @@
+build --enable_platform_specific_config
+
+
+build:linux --cxxopt="-std=c++14"
+build:linux --cxxopt="-Wno-unknown-pragmas"
+build:linux --linkopt="-lpng"
+build:linux --linkopt="-lpthread"
+build:linux --linkopt="-lstdc++fs"
+build:linux --linkopt="-lX11"
+build:linux --linkopt="-lGL"
