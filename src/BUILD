@@ -3,5 +3,5 @@ cc_library(
     srcs = glob(["*.cpp"]),
     deps = ["//include:mos6502_headers"],
     copts = ["-Iinclude"],
-    visibility = ["//:__pkg__"]
+    visibility = ["//visibility:public"]
 )
