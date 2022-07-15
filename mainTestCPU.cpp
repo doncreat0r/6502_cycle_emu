@@ -210,10 +210,9 @@ public:
 
 void Demo6502::cpu_task()
 {
-	for (;;)
+	while (!cpu_done)
 	{
 		if (!cpu_init_done) continue;
-		if (cpu_done) break;
 
 		if (step_mode)
 		{
